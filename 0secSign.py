@@ -47,7 +47,7 @@ EWECHATAPPSECRETS = os.environ["EWECHATAPPSECRETS"]
 
 def get_code_uuid():
     global base64_image, base64_uuid
-    code_url = "https://wiki.0-sec.org/api/user/captchaImage"
+    code_url = "https://wiki.cisp-pte.com/api/user/captchaImage"
     code_image = requests.get(code_url)
     json_data = json.loads(code_image.content)
     base64_image = json_data['data']['img']
