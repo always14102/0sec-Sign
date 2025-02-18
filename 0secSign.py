@@ -189,7 +189,7 @@ def wecom_id_push(ww_id, agent_id, app_secrets, msg):
     if ret["errcode"] != 0:
         print("微信推送配置错误")
     else:
-        print("Wecom: " + ret)
+        print("Wecom: " + ret['message'])
 
 
 def main():
