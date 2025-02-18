@@ -72,7 +72,7 @@ def login(uuid):
                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36',
                'Content-Type': 'application/json;charset=UTF-8', 'Accept-Encoding': 'gzip, deflate',
                'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8'}
-    url = "https://wiki.0-sec.org/api/user/login"
+    url = "https://wiki.cisp-pte.com/api/user/login"
     login_data = {"account": username, "password": password, "code": base64_api(), "uuid": uuid}  ##字典
     data_json = json.dumps(login_data)  ##转json格式
     logins = requests.post(url=url, headers=headers, data=data_json)
@@ -83,12 +83,12 @@ def login(uuid):
 
 def sign(token):
     headers = {'Zero-Token': token}
-    url = "https://wiki.0-sec.org/api/profile"
+    url = "https://wiki.cisp-pte.com/api/profile"
     old_sign_data_json = requests.get(url=url, headers=headers)
     print(old_sign_data_json.content)
     old_sign_data_credit = json.loads(old_sign_data_json.content)['data']['credit']
 
-    url1 = "https://wiki.0-sec.org/api/front/user/sign"
+    url1 = "https://wiki.cisp-pte.com/api/front/user/sign"
     requests.post(url=url1, headers=headers)
 
     new_sign_data_json = requests.get(url=url, headers=headers)
